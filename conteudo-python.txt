@@ -1,0 +1,593 @@
+$001>Funções embutidas (built-in functions)
+que são amplamente utilizadas e oferecem funcionalidades básicas essenciais.
+#Tipo de Dados:
+int(): Converte um valor para inteiro.
+float(): Converte um valor para ponto flutuante.
+str(): Converte um valor para string.
+list(): Cria uma lista.
+tuple(): Cria uma tupla.
+dict(): Cria um dicionário.
+bool(): Converte um valor para booleano.
+
+#Entrada/Saída:
+print(): Imprime mensagens no console.
+input(): Lê uma entrada do usuário.
+
+#Operações Matemáticas:
+abs(): Retorna o valor absoluto de um número.
+max(): Retorna o maior valor em um iterável.
+min(): Retorna o menor valor em um iterável.
+sum(): Retorna a soma de elementos em um iterável.
+
+#Iteráveis:
+len(): Retorna o comprimento de um iterável.
+range(): Gera uma sequência de números.
+enumerate(): Retorna tuplas contendo índices e valores de um iterável.
+zip(): Combina elementos de iteráveis em tuplas.
+
+#Controle de Fluxo:
+if, else, elif: Estruturas condicionais.
+for: Laço de repetição para iterar sobre iteráveis.
+while: Laço de repetição enquanto uma condição é verdadeira.
+
+#Manipulação de Strings:
+str.upper(): Converte uma string para maiúsculas. 
+str.lower(): Converte uma string para minúsculas.
+str.strip(): Remove espaços em branco do início e do fim.
+
+
+#Funções Matemáticas:
+round(): Arredonda um número para um número específico de casas decimais.
+abs(): Retorna o valor absoluto de um número.
+pow(): Eleva um número a uma potência.
+
+#Gestão de Erros:
+try, except: Captura exceções.
+
+===================================================================
+
+$002>Textos,Caracteres,Encoding,Strings e Metodos
+#Texto:
+Texto Em Python, o texto é representado por meio de strings. Uma string é uma sequência de caracteres.
+
+#Caracteres:
+Caracteres são os elementos individuais que compõem uma string. Pode ser uma letra, número, espaço ou símbolo.
+texto = "Olá, Mundo"
+
+#Encoding:
+Definição: Encoding refere-se à representação de caracteres em forma binária (sequência de bits). Cada caractere em uma string é representado por um código específico.
+Exemplo: UTF-8, UTF-16, ASCII são exemplos de encodings. UTF-8 é amplamente utilizado e suporta uma ampla gama de caracteres internacionais.
+Nota: Em Python 3, as strings são Unicode por padrão, o que significa que você pode representar uma ampla gama de caracteres sem se preocupar com encoding na maioria das situações.
+import sys
+print(sys.getdefaultencoding())
+
+#Strings:
+Definição: Em Python, uma string é uma sequência de caracteres. Ela pode ser delimitada por aspas simples (') ou duplas (").
+string1 = 'Exemplo com aspas simples'
+string2 = "Exemplo com aspas duplas"
+Operações: As strings em Python suportam várias operações, como concatenação, fatiamento (slicing), formatação, entre outras.
+saudacao = "Olá"
+nome = "Maria"
+mensagem = saudacao + ", " + nome + "!"
+print(mensagem) # Saída: Olá, Maria!
+
+#Metodos:
+Métodos: As strings têm métodos integrados que facilitam a manipulação, como upper(), lower(), replace(), split(), entre outros.
+frase = "Python é uma linguagem poderosa"
+print(frase.upper()) # upper =>Transforma a string em maiúsculas
+
+=====================================================================
+
+$003>formatacao de Strings
+#Concatenação de Strings:
+A forma mais simples é concatenar strings usando o operador +.
+nome = "João"
+idade = 25
+texto = "Meu nome é " + nome + " e eu tenho " + str(idade) + " anos."
+
+#Método format:
+O método format permite inserir valores em uma string.
+nome = "Maria"
+idade = 30
+texto = "Meu nome é {} e eu tenho {} anos.".format(nome, idade)
+Ou, com índices:
+texto = "Meu nome é {0} e eu tenho {1} anos.".format(nome, idade)
+
+#F-Strings (format strings):
+A partir do Python 3.6, você pode usar f-strings, que é uma maneira mais simples e legível de formatar strings.
+nome = "Carlos"
+idade = 28
+texto = f"Meu nome é {nome} e eu tenho {idade} anos."
+
+#Método % (printf-style):
+É possível usar o método % para formatação no estilo da função printf em C. %s => para (strings) e %d => para (numeros)
+nome = "Ana"
+idade = 22
+texto = "Meu nome é %s e eu tenho %d anos." % (nome, idade)
+
+#Métodos de Formatação de Strings:
+As strings em Python têm métodos de formatação, como upper(), lower(), capitalize(), etc.
+O método capitalize() é um método de string em Python que retorna uma cópia da string original com o primeiro caractere convertido para maiúscula e os demais caracteres convertidos para minúscula.
+texto = "python é divertido"
+print(texto.capitalize()) # Saída: Python é divertido
+Neste exemplo, a string original é criada usando o método format() para inserir os valores de nome e idade. Em seguida, são criadas duas versões da string: uma em que todas as letras estão em maiúsculas => (upper()) e outra em que todas as letras estão em minúsculas => (lower()).
+nome = "Ana"
+idade = 22
+texto_original = "Meu nome é {} e eu tenho {} anos.".format(nome, idade)
+Convertendo para maiúsculas:
+texto_maiusculas = texto_original.upper()
+Convertendo para minúsculas:
+texto_minusculas = texto_original.lower()
+Exibindo os resultados:
+print("Original:", texto_original)
+print("Maiúsculas:", texto_maiusculas)
+print("Minúsculas:", texto_minusculas)
+
+====================================================================================
+
+$004>Standard Input & Output e argumentos do CLI
+#Standard Input (Entrada Padrão):
+A entrada padrão, geralmente referenciada como stdin, é usada para receber dados do usuário. Em Python, você pode utilizar a função input() para obter entrada do usuário:
+nome = input("Digite seu nome: ")
+print("Olá, " + nome + "!")
+Neste exemplo, o programa solicitará ao usuário que insira seu nome, e o nome fornecido será armazenado na variável nome.
+
+#Standard Output (Saída Padrão):
+A saída padrão, geralmente referenciada como stdout, é usada para exibir informações ao usuário. O comando básico para isso é print():
+print("Isso é uma mensagem de saída.")
+
+#Argumentos do CLI:
+É comum que programas Python aceitem argumentos da linha de comando, que são fornecidos quando o programa é executado. O módulo sys pode ser usado para acessar esses argumentos:
+import sys
+Obtendo argumentos da linha de comando:
+import sys
+argumentos = sys.argv
+
+#Imprimindo os argumentos::
+print("Argumentos da linha de comando:", argumentos)
+Ao executar o programa a partir da linha de comando, os argumentos fornecidos serão incluídos na lista sys.argv. O primeiro elemento é o nome do script Python e os subsequentes são os argumentos fornecidos.
+Por exemplo, se você executar python meu_programa.py arg1 arg2, a saída será algo como:
+Argumentos da linha de comando: ['meu_programa.py', 'arg1', 'arg2']
+
+=====================================================================
+
+$005>Tipos de Dados Compostos
+#Listas (list):
+Definição: Uma lista é uma coleção ordenada e mutável de itens. Os itens podem ser de diferentes tipos.
+lista_numeros = [1, 2, 3, 4, 5]
+lista_mista = [1, "dois", 3.0, True]
+
+#Tuplas (tuple):
+Definição: Uma tupla é uma coleção ordenada e imutável de itens. Assim como as listas, os itens podem ser de diferentes tipos.
+tupla_numeros = (1, 2, 3, 4, 5)
+tupla_mista = (1, "dois", 3.0, True)
+
+#Dicionários (dict):
+Definição: Um dicionário é uma coleção não ordenada de pares chave-valor. Cada valor é associado a uma chave única.
+dicionario = {"nome": "João", "idade": 25, "cidade": "Exemplo"}
+
+#Ponto Flutuante (Float):
+Definição: O tipo float é usado para representar números de ponto flutuante, ou seja, números que podem ter uma parte decimal.
+Peso = 70.2
+Aniversario = 06.04
+
+#Boleano (Bool):
+Definição: O tipo bool é usado para representar valores lógicos, ou seja, verdadeiro (True) ou falso (False).
+Maculino = True
+Tem_Cachorro = False
+
+#(NoneType):
+Definição: O tipo NoneType tem apenas um valor, que é None. Ele é usado para representar a ausência de valor ou a falta de retorno de uma função.
+Notas = None
+filmes_numero = None
+
+#Conjuntos (set):
+Definição: Um conjunto é uma coleção não ordenada de elementos únicos.
+conjunto_numeros = {1, 2, 3, 4, 5}
+
+#EXERCICIO:
+Lista de tuplas com informações dos alunos (nome, idade, nota)
+alunos = [
+("Ana", 20, 8.5),
+("Carlos", 22, 7.8),
+("Maria", 21, 9.2),
+("Pedro", 20, 6.5),
+]
+
+Calcular a média das notas:
+Usamos uma list comprehension para extrair as notas da lista de alunos
+notas = [nota for _, _, nota in alunos]
+media_notas = sum(notas) / len(notas)
+
+Imprimir a média das notas:
+print("Média das notas:", media_notas)
+
+Imprimir os alunos com notas acima da média:
+print("Alunos com notas acima da média:")
+
+Usamos um loop for para percorrer a lista de alunos:
+
+for nome, _, nota in alunos:
+____Verificamos se a nota do aluno é maior que a média
+____if nota > media_notas:
+________Imprimimos o nome do aluno e sua nota
+________print(f"{nome}: {nota}")
+
+# NOTA IMPORTANTE:
+Em Python, o caractere _ (underscore) é frequentemente utilizado 
+como uma convenção para representar variáveis que não serão utilizadas no 
+bloco de código em que são atribuídas. 
+Essa prática é uma forma de indicar que o valor da variável não é relevante 
+para o restante do código ou que não será usado.
+
+No exemplo específico fornecido:
+notas = [nota for _, _, nota in alunos]
+
+Nesse contexto, as tuplas dentro da lista alunos contêm 
+três elementos cada (nome, idade, nota). No entanto,
+a list comprehension está interessada apenas nas notas (terceiro elemento). 
+O uso de _ para os elementos que não são necessários indica que os valores 
+de nome e idade não serão utilizados nesse trecho de código. Isso ajuda a tornar o 
+código mais limpo e a indicar a intenção de não utilizar esses valores.
+
+O caractere _ é uma convenção e não possui um significado
+especial no sentido de atribuir valores a uma variável específica;
+seu uso está relacionado à prática de indicar que um valor não 
+será utilizado posteriormente no código.
+
+=================================================================
+
+$006>Manipulando arquivos e pastas
+O módulo `os` fornece funcionalidades para interagir com o sistema operacional, enquanto o módulo shutil oferece operações mais elevadas, como copiar e mover arquivos.
+#Manipulação de Arquivos:
+Abrir e Ler um Arquivo:
+with open("exemplo.txt", "r") as arquivo:
+____conteudo = arquivo.read()
+____print(conteudo)
+
+Escrever em um Arquivo:
+with open("novo_arquivo.txt", "w") as arquivo:
+____arquivo.write("Conteúdo para ser escrito no arquivo.")
+
+Anexar Conteúdo a um Arquivo:
+with open("arquivo_existente.txt", "a") as arquivo:
+____arquivo.write("\nNovo conteúdo para ser anexado.")
+
+#Manipulação de Pastas:
+Criar uma Pasta:
+
+import os
+nova_pasta = "nova_pasta"
+os.makedirs(nova_pasta)
+
+Listar Arquivos em uma Pasta:
+
+import os
+pasta = "exemplo_pasta"
+arquivos = os.listdir(pasta)
+for arquivo in arquivos:
+____print(arquivo)
+
+Renomear um Arquivo ou Pasta:
+
+import os
+antigo_nome = "antigo.txt"
+novo_nome = "novo.txt"
+os.rename(antigo_nome, novo_nome)
+Mover um Arquivo ou Pasta:
+
+import shutil
+origem = "arquivo.txt"
+destino = "pasta_destino/"
+shutil.move(origem, destino) 
+
+================================================================
+
+$007>Condicionais ternárias e inlines
+#Condicionais Ternárias:
+A condicional ternária, também conhecida como operador ternário, 
+é uma expressão compacta para escrever instruções if-else em uma única linha. 
+A sintaxe básica é a seguinte:
+
+valor_se_verdadeiro = None
+condição = None
+valor_se_falso = None
+
+resultado = valor_se_verdadeiro if condição else valor_se_falso
+
+Exemplo:
+
+idade = 20
+status = "Maior de idade" if idade >= 18 else "Menor de idade"
+print(status)
+Neste exemplo, a variável status receberá a string "Maior de idade" 
+se a condição idade >= 18 for verdadeira e "Menor de idade" caso contrário.
+
+#Expressões Inline:
+As expressões inline são usadas para realizar operações de uma maneira concisa, 
+muitas vezes em uma única linha. Elas podem incluir condicionais ternárias, funções e outras operações.
+
+Verificar se um número é par
+
+numero_par = lambda x: "Par" if x % 2 == 0 else "Ímpar"
+print(numero_par(10)) # Saída: Par
+
+Neste exemplo, uma expressão lambda (função anônima) é usada com uma 
+condicional ternária para verificar se um número é par ou ímpar.
+
+Ambas as condicionais ternárias e expressões inline são úteis para tornar
+o código mais conciso quando se lida com lógica condicional em situações simples.
+No entanto, é importante usá-las com moderação para garantir a clareza e a 
+legibilidade do código. Em casos mais complexos, pode ser preferível usar 
+blocos if-else convencionais para manter a compreensibilidade do código. 
+
+
+==========================================================================
+
+
+$008>Repetições com for e while
+#Loops com for:
+O loop for é usado para iterar sobre uma sequência (como uma lista, tupla, string, etc.)
+ ou outros objetos iteráveis. A sintaxe básica é a seguinte:
+
+for variavel in sequencia:
+____Código a ser repetido para cada elemento na sequência
+Exemplo:
+
+Iterar sobre uma lista:
+
+frutas = ["maçã", "banana", "laranja"]
+for fruta in frutas:
+____print(fruta)
+#Loops com while:
+O loop while é usado para repetir um bloco de código enquanto 
+uma condição for verdadeira. A sintaxe é a seguinte:
+
+while condição:
+____Código a ser repetido enquanto a condição for verdadeira
+
+exemplo:
+
+Loop para contar até 5:
+
+contador = 1
+while contador <= 5:
+____print(contador)
+____contador += 1
+#Break e Continue:
+A instrução break é usada para sair imediatamente de um loop.
+
+A instrução continue é usada para pular o restante do código no corpo do loop
+ e avançar para a próxima iteração.
+
+Exemplo com while:
+Neste exemplo, o loop while será interrompido quando o contador atingir o valor 5.
+
+contador = 1
+while contador <= 10:
+____if contador == 5:
+____break
+____print(contador)
+____contador += 1
+#Range():
+A função range() é frequentemente usada com loops for para gerar uma sequência de números.
+
+Exemplo:
+
+Este código imprimirá os números de 0 a 4.
+for i in range(5):
+____print(i)
+
+Os loops for e while são fundamentais para a programação em Python,
+permitindo a execução repetida de blocos de código de acordo com
+as condições ou sequências fornecidas.
+
+===========================================================================
+
+
+$009>Funções Lambda
+#A sintaxe básica é a seguinte:
+As funções lambda em Python são funções anônimas (sem nome) que
+podem ter qualquer número de parâmetros, mas apenas uma expressão.
+Elas são criadas usando a palavra-chave lambda. As funções lambda são úteis 
+quando você precisa de uma função por um curto período e não deseja
+criar uma função definida por def.
+
+A sintaxe básica é a seguinte:
+
+lambda parametros: expressao
+
+#Exemplo 1: Função lambda simples:
+Função lambda que calcula o quadrado de um número:
+quadrado = lambda x: x**2
+Uso da função lambda:
+
+resultado = quadrado(5)
+print(resultado) # Saída: 25
+
+#Exemplo 2: Função lambda com múltiplos parâmetros:
+Função lambda que calcula a soma de dois números:
+
+soma = lambda a, b: a + b
+Uso da função lambda:
+resultado = soma(3, 4)
+print(resultado) # Saída: 7
+
+#Exemplo 3: Uso com funções embutidas:
+Função lambda como argumento para a função map()
+numeros = [1, 2, 3, 4, 5]
+quadrados = list(map(lambda x: x**2, numeros))
+print(quadrados) # Saída: [1, 4, 9, 16, 25]
+
+#Exemplo 4: Função lambda em expressões condicionais:
+Função lambda para verificar se um número é par
+
+verificar_par = lambda x: True if x % 2 == 0 else False
+Uso da função lambda:
+print(verificar_par(4)) # Saída: True
+print(verificar_par(7)) # Saída: False
+
+As funções lambda são especialmente úteis em situações onde
+você precisa de uma função rápida para uma operação específica,
+como em chamadas de funções como map(), filter(), e sorted(). 
+No entanto, é importante observar que o uso excessivo de funções
+lambda complexas pode tornar o código menos legível, e, nesses casos,
+pode ser mais apropriado usar funções definidas por def.
+
+========================================================================
+
+$010>list comprehension
+#A sintaxe básica de uma list comprehension é a seguinte:
+def expressao():
+____pass
+def sequencia():
+____pass
+def condicao():
+____pass
+nova_lista = [expressao for item in sequencia if condicao]
+
+List comprehension é uma construção sintática em Python que permite
+criar listas de forma concisa e expressiva. É uma maneira elegante
+e eficiente de criar listas aplicando uma expressão a cada item em
+uma sequência (como uma lista, tupla ou string) e, opcionalmente,
+incluindo condições para filtrar os elementos.
+
+expressao: A expressão que será aplicada a cada item.
+
+item: Variável de iteração que representa cada elemento da sequência.
+
+sequencia: A sequência de onde os elementos são retirados (lista, tupla, string, etc.).
+
+condicao (opcional): Uma condição que determina se o item é incluído na nova lista.
+
+#Criando uma lista de quadrados dos números de 0 a 4:
+quadrados = [x**2 for x in range(5)]
+Resultado: [0, 1, 4, 9, 16]
+
+Neste exemplo, x é a variável de iteração, range(5) fornece os números
+de 0 a 4, e x**2 é a expressão que calcula o quadrado de cada número.
+
+#Outro exemplo simples:
+crie uma lista de um range de 0 até 4, pegue cada numero e multiplique
+ao quadrado faça um filtro, se o resto da divisao do numero for igual a zero.
+
+quadrados = [x**2 for x in range(5) if x % 2 == 0]
+Resultado: [0, 4, 16]
+print(quadrados)
+
+#Filtrando números pares de uma lista:
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+pares = [x for x in numeros if x % 2 == 0]
+Resultado: [2, 4, 6, 8, 10]
+Neste exemplo, a condição if x % 2 == 0 verifica se cada número é par,
+e apenas os números pares são incluídos na nova lista pares.
+
+As list comprehensions são uma maneira poderosa e concisa de
+criar listas em Python, proporcionando código mais legível e eficiente
+em comparação com abordagens tradicionais de loop e criação de listas.
+
+#exemplo com condicionais:
+Esse código realiza operações simples na lista original para Criar
+novas listas contendo números maiores que 5, números ímpares, números
+pares e uma versão dos números pares onde o 6 é substituído por 600.
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+novo_numeros = [numero for numero in numeros if numero > 5]
+impares = [numero for numero in numeros if numero % 2 != 0]
+pares = [numero for numero in numeros if numero % 2 == 0]
+outro_if = [
+____numero
+____if numero != 6 else 600
+____for numero in pares
+]
+print(numeros)
+print(novo_numeros)
+print(impares)
+print(pares)
+print(outro_if)
+#exemplo de linhas e colunas:
+List Comprehension Aninhada:
+
+O código utiliza uma list comprehension aninhada com dois loops for.
+Tuplas Condicionalmente Criadas:
+
+A cada iteração, cria-se uma tupla (x, y) se a condição y != 2 for verdadeira.
+Caso contrário, cria-se a tupla (x, y * 1000) se a condição y != 2 for falsa.
+
+Dois Loops for:
+
+O primeiro loop for itera sobre valores de x de 1 a 10.
+O segundo loop for itera sobre valores de y de 1 a 5.
+Condição if Externa:
+
+A condição if x != 2 é usada para filtrar as tuplas geradas, excluindo aquelas em que x é igual a 2.
+
+Resultado Impresso:
+
+A lista resultante é impressa, mostrando as tuplas geradas com base nas condições especificadas.
+linhas_e_colunas = [
+____(x, y)
+____if y != 2 else (x, y * 1000)
+____for x in range(1, 11)
+____for y in range(1, 6)
+____if x != 2
+]
+print(linhas_e_colunas)
+
+#exemplo com strings:
+Divisão da String em Segmentos:
+
+Utiliza uma list comprehension para dividir a
+string original (string) em segmentos de tamanho especificado (numero_de_letras).
+
+range(0, len(string), numero_de_letras) gera índices começando
+de 0 até o comprimento da string, com passos do tamanho de numero_de_letras.
+
+Criação de uma Nova String:
+
+Cada segmento da string é obtido usando a notação de slice: string[indice:indice + numero_de_letras].
+Os segmentos são colocados em uma lista.
+Junção com Ponto:
+
+Utiliza o método join para unir os segmentos da lista, separando-os com ponto ('.').
+Resultado Impresso:
+
+A nova string resultante é impressa.
+string = 'Otávio Miranda'
+numero_de_letras = 2
+nova_string = '.'.join([
+____string[indice:indice + numero_de_letras]
+____indice in range(0, len(string), numero_de_letras)
+])
+print(nova_string)
+#exemplo com listas:
+List Comprehension:
+Utiliza uma list comprehension para criar a lista novos_nomes com base na lista original de nomes.
+Modificação nos Nomes:
+
+Para cada nome na lista original, realiza a seguinte operação:
+nome[:-1]: Obtém todos os caracteres do nome, exceto o último.
+.lower(): Converte todos os caracteres para minúsculas.
+nome[-1].upper(): Obtém o último caractere do nome e converte para maiúscula.
+Usa a f-string para combinar a parte convertida em minúsculas com a última letra em maiúsculas.
+Resultado Impresso:
+
+A nova lista resultante, contendo os nomes modificados, é impressa.
+
+nomes = ['luiz', 'maria', 'helena', 'joana', 'felipe']
+novos_nomes = [
+____f'{nome[:-1].lower()}{nome[-1].upper()}'
+____for nome in nomes
+]
+print(novos_nomes)
+#exemplo usando uma list conprehension flat:
+numeros = [[numero, numero ** 2] for numero in range(10)]
+flat = [y for x in numeros for y in x]
+print(numeros)
+print(flat)
+
+resposta:
+
+[[0, 0], [1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49], [8, 64], [9, 81]]
+[0, 0, 1, 1, 2, 4, 3, 9, 4, 16, 5, 25, 6, 36, 7, 49, 8, 64, 9, 81] 
+
