@@ -1,3 +1,14 @@
+
+    Linguagem: Python
+    Ano: 1989
+    País: Holanda
+    Criador: Guido Van Rossum
+    Tipagem: Dinâmica,Forte
+    Aprendizado: Rápido
+    Comunidade: Grande
+
+============================================================
+
 $001>Funções embutidas (built-in functions)
 que são amplamente utilizadas e oferecem funcionalidades básicas essenciais.
 #Tipo de Dados:
